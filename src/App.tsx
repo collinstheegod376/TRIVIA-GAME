@@ -1,11 +1,11 @@
-import React, { useState, useEffect } from 'react';
-import { Settings, Users, LogOut, Code, Play, Plus, Hourglass, Menu, Trophy, ShoppingBag, User as UserIcon, X, Gamepad2, Volume2, Wifi } from 'lucide-react';
-import { createClient } from '@supabase/supabase-js';
+import React, { useState } from 'react';
+import { Settings, LogOut, Code, Play, Plus, Hourglass, Trophy, ShoppingBag, User as UserIcon, X, Gamepad2 } from 'lucide-react';
+// import { createClient } from '@supabase/supabase-js';
 
 // Setup Supabase Mock Client (Use actual values in production)
 const supabaseUrl = 'https://YOUR_PROJECT.supabase.co';
 const supabaseKey = 'YOUR_ANON_KEY';
-const supabase = createClient(supabaseUrl, supabaseKey);
+// const supabase = createClient(supabaseUrl, supabaseKey);
 
 type Player = { id: string; name: string; avatar: string; isHost?: boolean };
 
@@ -17,11 +17,11 @@ const INITIAL_PLAYERS: Player[] = [
 
 export default function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
-  const [activeTab, setActiveTab] = useState<'lobby' | 'settings'>('lobby');
-  const [players, setPlayers] = useState<Player[]>(INITIAL_PLAYERS);
-  const [activePlayersCount, setActivePlayersCount] = useState(342); // Mock active global players
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isSettingsOpen, setIsSettingsOpen] = useState(false);
+  
+  // Hardcoded for UI demo
+  const players: Player[] = INITIAL_PLAYERS;
+  const activePlayersCount = 342;
   
   // Game Configuration State
   const [gameConfig, setGameConfig] = useState({
