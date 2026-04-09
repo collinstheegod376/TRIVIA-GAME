@@ -3,8 +3,8 @@ import { Settings, LogOut, Code, Play, Plus, Hourglass, Trophy, ShoppingBag, Use
 // import { createClient } from '@supabase/supabase-js';
 
 // Setup Supabase Mock Client (Use actual values in production)
-const supabaseUrl = 'https://YOUR_PROJECT.supabase.co';
-const supabaseKey = 'YOUR_ANON_KEY';
+// const supabaseUrl = 'https://YOUR_PROJECT.supabase.co';
+// const supabaseKey = 'YOUR_ANON_KEY';
 // const supabase = createClient(supabaseUrl, supabaseKey);
 
 type Player = { id: string; name: string; avatar: string; isHost?: boolean };
