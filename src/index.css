@@ -2,38 +2,56 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
+
 @layer base {
-  body {
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
+  html {
     font-family: 'Plus Jakarta Sans', sans-serif;
+  }
+  body {
     background-color: #0e0e13;
     color: #f8f5fd;
     background-image: radial-gradient(circle at 50% 50%, #1a1a2e 0%, #0e0e13 100%);
     background-attachment: fixed;
+    min-height: 100vh;
   }
 }
 
 @layer utilities {
   .glass-panel {
-    background: rgba(25, 25, 31, 0.4);
+    background: rgba(25, 25, 31, 0.55);
     backdrop-filter: blur(24px);
     -webkit-backdrop-filter: blur(24px);
   }
   .neon-pulse {
     box-shadow: 0 0 15px rgba(0, 244, 254, 0.3);
   }
-  .animate-shimmer {
-    animation: shimmer 2s linear infinite;
-    background-size: 200% 100%;
-  }
-}
-
-@layer components {
-  .material-symbols-outlined {
-    font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
-  }
 }
 
 @keyframes shimmer {
-  0% { background-position: -200% 0; }
-  100% { background-position: 200% 0; }
+  0%   { background-position: -200% 0; }
+  100% { background-position:  200% 0; }
+}
+.animate-shimmer {
+  animation: shimmer 2.5s linear infinite;
+  background-size: 200% 100%;
+}
+
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+.animate-spin-slow {
+  animation: spin-slow 8s linear infinite;
+}
+
+@keyframes pulse-glow {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.6; }
+}
+.animate-pulse-glow {
+  animation: pulse-glow 3s ease-in-out infinite;
 }
